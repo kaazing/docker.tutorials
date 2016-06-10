@@ -35,5 +35,5 @@ RUN npm --prefix ./web/javascript.client.tutorials/ws install ./web/javascript.c
 
 # Add config
 COPY echo-auth-gateway-config.xml conf/gateway-config.xml
-COPY jaas-config.xml conf/jass-config.xml
+COPY jaas-config.xml conf/jaas-config.xml
 
