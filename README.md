@@ -34,17 +34,17 @@ Each subdirectory contains a scenario listed above and provides instructions on 
 
 ![JMS Architecture](JMS/jms.png)
 
-* Redis (example coming soon)
+* [Securing your deployments with Enterprise Shield&trade; (No open port Firewall for any service)](enterprise-shield) ![EE]
+
+![Enterprise Shield](enterprise-shield/enterprise-shield.png) 
+
+* Redis (example coming soon)  ![EE]
 
 * Http Proxy (example coming soon)
 
 * High Availability and Clustering (example coming soon) 
 
-* [Securing your deployments with Enterprise Shield&trade; (No open port Firewall for any service)](enterprise-shield) ![EE]
-
-![Enterprise Shield](enterprise-shield/enterprise-shield.png) 
-
-* KWIC (example coming soon)
+* KWIC (example coming soon)  ![EE]
 
 [EE]: enterprise-feature.png "Enterprise Edition Feature"
 
