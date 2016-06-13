@@ -4,9 +4,9 @@ This tutorial shows how to secure a websocket service with TLS/SSL.
 
 ### Getting Started
 
-To run this you must have installed docker and have added a host file entry for kaazing.example.com, as described [here](../README.md)
+To run this you must have installed docker and have added a host file entry for kaazing.example.com, as described [here](../../README.md)
 
-The [docker-compose.yml](docker-compose.yml) describes one containers: the gateway.  
+The [docker-compose.yml](docker-compose.yml) describes one container: the gateway.  
 
 ![wss](../wss.png)
 
@@ -83,6 +83,6 @@ Lastly, in the Dockerfile we have added logic to pull in and build a javascript 
 
 ### Next Steps
   
-- [See how to user authentication with WebSocket](../../user-auth)
+- [See how to configure user authentication with WebSocket](../../user-auth)
 - [See how to configure AMQP and WebSocket](../../AMQP)
 - [See how to configure JMS and WebSocket](../../JMS)
