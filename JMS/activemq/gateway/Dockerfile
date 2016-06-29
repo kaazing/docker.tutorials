@@ -1,4 +1,4 @@
-FROM kaazing/enterprise-gateway:latest
+FROM kaazing/enterprise-gateway:5.0.1
 
 # Generate Keystore entry for kaazing.example.com
 
