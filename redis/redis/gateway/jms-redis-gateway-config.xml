@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gateway-config xmlns="http://xmlns.kaazing.org/2015/11/gateway">
+
+  <service>
+    <name>Directory Service</name>
+    <description>
+        Directory Service to serve up secure pages with, file
+        in web directory are available via https
+    </description>
+
+    <accept>http://kaazing.example.com:8000/</accept>
+
+    <type>directory</type>
+
+    <properties>
+      <directory>/javascript.client.tutorials/jms</directory>
+      <welcome-file>index.html</welcome-file>
+    </properties>
+  </service>
+
+  <service>
+    <name>JMS Tutorial Service</name>
+    <description>A service that proxys to an JMS backend</description>
+    <accept>ws://kaazing.example.com:8000/</accept>
+    <connect>tcp://redis:6379</connect>
+    
+    <type>redis</type>
+    <properties>
+        <inactivity.timeout>0</inactivity.timeout>
+    </properties>
+    
+    <cross-site-constraint>
+      <!-- Only websockets coming from this origin can access this url -->
+      <allow-origin>*</allow-origin>
+    </cross-site-constraint>
+  </service>
+
+  <security>
+    <keystore>
+      <type>JCEKS</type>
+      <file>keystore.db</file>
+      <password-file>keystore.pw</password-file>
+    </keystore>
+  </security>
+
+</gateway-config>
