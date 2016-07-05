@@ -13,7 +13,7 @@
     <type>directory</type>
 
     <properties>
-      <directory>/javascript.client.tutorials/jms</directory>
+      <directory>/websocket-jms-tutorial</directory>
       <welcome-file>index.html</welcome-file>
     </properties>
   </service>
@@ -31,7 +31,7 @@
     
     <cross-site-constraint>
       <!-- Only websockets coming from this origin can access this url -->
-      <allow-origin>*</allow-origin>
+      <allow-origin>https://kaazing.example.com:8000/</allow-origin>
     </cross-site-constraint>
   </service>
 

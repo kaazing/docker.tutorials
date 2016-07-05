@@ -5,26 +5,5 @@ services:
     ports:
       - "8000:8000"
     hostname: "kaazing.example.com"
-    networks: 
-      tut-redis: 
-        ipv4_address: 172.19.0.3
-    volumes:
-    - /var/log/tut-redis/gateway:/kaazing-gateway/log
   redis:
-    build: broker
-    ports:
-      - "6379:6379"
-    networks: 
-      tut-redis: 
-        ipv4_address: 172.19.0.4      
-    volumes:
-     - /var/log/tut-redis/redis:/data/log/
-networks:
-  tut-redis:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet: 172.19.0.0/16
-        gateway: 172.19.0.1
-        
+    image: redis:latest
