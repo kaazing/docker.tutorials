@@ -38,7 +38,9 @@ Each subdirectory contains a scenario listed below and provides instructions on 
 
 ![Enterprise Shield](enterprise-shield/enterprise-shield.png) 
 
-* Redis (example coming soon)  ![EE]
+* [Redis and WebSocket](redis)  ![EE]
+
+![Redis Architecture](redis/redis.png)
 
 * Http Proxy (example coming soon)
 
@@ -47,5 +49,3 @@ Each subdirectory contains a scenario listed below and provides instructions on 
 * KWIC (example coming soon)  ![EE]
 
 [EE]: enterprise-feature.png "Enterprise Edition Feature"
-
-
