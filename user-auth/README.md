@@ -6,7 +6,7 @@ The Gateway can be configured for user authentication.  A user is authenticated 
 
 There are several ways to configure user authentication, including:
 
-* [Authorization File](file)
+* [Authentication File](file)
 * LDAP - example coming soon
 * Custom Login module - example coming soon
 * Kerberos - example coming soon
