@@ -1,16 +1,16 @@
 # Broadcast Netcat to WebSocket Clients
 
-This tutorial shows how to broadcast TCP data to WebSocket clients.  [Netcat](https://en.wikipedia.org/wiki/Netcat) is used as a dummy TCP backend server.
+This tutorial describes how to broadcast TCP data to WebSocket clients. [Netcat](https://en.wikipedia.org/wiki/Netcat) is used as a TCP backend server.
 
 ### Getting Started
 
-To run this you must have installed docker and have added a host file entry for kaazing.example.com, as described [here](../../README.md)
+To run this example, you must have Docker installed and have added a host file entry for `kaazing.example.com1, as described [here](../../README.md)
 
-The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the gateway and netcat.  These will be launched in the following configuration
+The [docker-compose.yml](docker-compose.yml) describes the two containers it will run: the Gateway and Netcat.These containers will be launched in the following configuration:
 
 ![Broadcast architecture](../broadcast.png)
 
-The gateway container will run a broadcast service that allows WebSocket clients to connect on the front end.  When a tcp message is sent from netcat, the gateway will forward that message to all other connected clients.  The [gateway config file](gateway/broadcast-gateway-config.xml) is configured as follows
+The Gateway container will run a broadcast service that allows WebSocket clients to connect on the front-end. When a TCP message is sent from Netcat, the Gateway will forward that message to all other connected clients. The [gateway config file](gateway/broadcast-gateway-config.xml) is configured as follows:
 
 ```xml
   <service>
@@ -43,9 +43,9 @@ The gateway container will run a broadcast service that allows WebSocket clients
   docker-compose up -d
   ```
 
-2. Connect to the gateway in a web browser via [http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/](http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/)
+2. Connect to the Gateway in a Web browser via [http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/](http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/)
 
-3. Push data through netcat by running
+3. Push data through Netcat by running
   ```bash
   docker-compose exec netcat nc -l 1000
   ```
@@ -53,4 +53,4 @@ The gateway container will run a broadcast service that allows WebSocket clients
   
 ### Next Steps
   
-- [Learn how to configure the gateway to encrypt the traffic with TLS/WS](../../wss)
+- Learn how to configure the Gateway to encrypt traffic with WebSocket over TLS: [WSS](../../wss)
