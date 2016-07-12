@@ -20,7 +20,7 @@ Each subdirectory contains a scenario listed below and provides instructions on 
 
 * [Broadcasting TCP Data to WebSocket Clients](broadcast)
 
-![Broadcast Architecture](broadcast/broadcast.png)
+  ![Broadcast Architecture](broadcast/broadcast.png)
 
 * [Enable WSS (WebSocket over TLS)](wss)
 
