@@ -1,4 +1,4 @@
-# User Auth
+# Authenticating Users
 
 ![user-auth](authorization.png)
 
