@@ -86,4 +86,4 @@ The realm is configured with a login module file that reads user credentials and
 
 ### Next Steps
   
-[See Deployment Scenarios](../../docker.tutorials#deployment-scenarios)
+[See Deployment Scenarios](../../../docker.tutorials#deployment-scenarios)
