@@ -1,8 +1,8 @@
-# AMQP
+# AMQP and WebSocket
 
 ![amqp](amqp.png)
 
-The gateway can be configured as an AMQP proxy, talking to a backend AMQP broker and allowing websocket AMQP client to connect.  Example configurations are shown for:
+The Gateway can be configured as an AMQP proxy, accepting WebSocket AMQP client connections and messages and communicating with a backend AMQP broker.  Example configurations are shown for:
 
 * [RabbitMQ](rabbitmq)
-* QPID (coming soon)
+* QPID - coming soon
