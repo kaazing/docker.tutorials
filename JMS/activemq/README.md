@@ -1,4 +1,4 @@
-# JMS via ActiveMQ with Kaazing Gateway
+# JMS via ActiveMQ with Kaazing Gateway  ![Enterprise Edition](../../enterprise-feature.png)
 
 This tutorial shows how to connect JMS clients to the JMS broker, ActiveMQ, via the Gateway and over WebSocket.
 
