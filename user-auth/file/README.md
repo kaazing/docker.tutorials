@@ -80,7 +80,7 @@ The realm is configured with a login module file that reads user credentials and
 
 2. Connect to the Gateway in a Web browser via `https://kaazing.example.com:8000/`. You will see a security error saying the certificate is not trusted. This error is the result of using a self-signed certificate. Proceed anyways (in Chrome this is under the **Advanced** drop-down menu). This step will temporarily add the generated self-signed certificate to your computer's truststore.
 
-3. Change the `connect` URL of the demo to `wss://kaazing.example.com:8000/` and connect. You will be prompted for login credentials. Use the following: **Username:** `joe`, **Password:** `welcome`. 
+3. Change the connect URL of the demo to `wss://kaazing.example.com:8000/` and connect. You will be prompted for login credentials. Use the following: **Username:** `joe`, **Password:** `welcome`. 
 
 4.  When you send a message it will echo back to you.
 
