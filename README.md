@@ -26,7 +26,7 @@ Each subdirectory contains a scenario listed below and provides instructions on 
 
 ![WSS Architecture](wss/wss.png)
 
-* [Authorizing Users](user-auth)
+* [Authenticating Users](user-auth)
 
 ![User-Auth Architecture](user-auth/authorization.png)
 
