@@ -10,19 +10,19 @@ These tutorials require that you have Docker and Docker Compose installed.  If t
   - [Linux](https://docs.docker.com/linux/)
   - [Windows](https://docs.docker.com/windows/).
 
-These tutorials also require that the host name `kaazing.example.com` resolve to the Docker host machine. To enable this resolution, add an entry in your [hosts file](https://en.wikipedia.org/wiki/Hosts_(file)) for `kaazing.example.com` that points to your Docker host's IP address.For example, if you are using Docker Machine, you can get the IP address with this command: `docker-machine ip`. If you are using Kitematic, go to **Settings** then **Ports**. For other examples, see [10 Examples of how to get Docker Container IP Address](http://networkstatic.net/10-examples-of-how-to-get-docker-container-ip-address/).
+These tutorials also require that the host name `kaazing.example.com` resolve to the Docker host machine. To enable this resolution, add an entry in your [hosts file](https://en.wikipedia.org/wiki/Hosts_(file)) for `kaazing.example.com` that points to your Docker host's IP address. For example, if you are using Docker Machine, you can get the IP address with this command: `docker-machine ip`. If you are using Kitematic, go to **Settings** then **Ports**. For other examples, see [10 Examples of how to get Docker Container IP Address](http://networkstatic.net/10-examples-of-how-to-get-docker-container-ip-address/).
 
-### Scenarios
+### Deployment Scenarios
 
 Each subdirectory contains a scenario listed below and provides instructions on how to run the setup locally.
 
-** ![EE] marks demos that require the Enterprise Edition.
+**Note:** ![EE] marks demos that require the Kaazing WebSocket Gateway Enterprise Edition.
 
-* [Broadcasting TCP data to WebSocket clients](broadcast)
+* [Broadcasting TCP Data to WebSocket Clients](broadcast)
 
 ![Broadcast Architecture](broadcast/broadcast.png)
 
-* [Enable WSS (TLS)](wss)
+* [Enable WSS (WebSocket over TLS)](wss)
 
 ![WSS Architecture](wss/wss.png)
 
@@ -38,7 +38,7 @@ Each subdirectory contains a scenario listed below and provides instructions on 
 
 ![JMS Architecture](JMS/jms.png)
 
-* [Securing your deployments with Enterprise Shield&trade; (No open port Firewall for any service)](enterprise-shield) ![EE]
+* [Securing Your Deployments With Enterprise Shield&trade; (Firewall with no open ports for any service)](enterprise-shield) ![EE]
 
 ![Enterprise Shield](enterprise-shield/enterprise-shield.png) 
 
@@ -46,10 +46,10 @@ Each subdirectory contains a scenario listed below and provides instructions on 
 
 ![Redis Architecture](redis/redis.png)
 
-* Http Proxy (example coming soon)
+* HTTP Proxy - example coming soon.
 
-* High Availability and Clustering (example coming soon) 
+* High Availability and Clustering - example coming soon.
 
-* KWIC (example coming soon)  ![EE]
+* KWIC ([Kaazing WebSocket Intercloud Connect](http://kaazing.com/kwic/)) - example coming soon  ![EE]
 
 [EE]: enterprise-feature.png "Enterprise Edition Feature"
