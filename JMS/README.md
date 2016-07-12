@@ -1,4 +1,4 @@
-# JMS and WebSocket
+# JMS and WebSocket  ![Enterprise Edition](../enterprise-feature.png)
 
 ![jms](jms.png)
 
