@@ -1,71 +1,93 @@
-# Broadcast Netcat to WebSocket Clients
+# Deploy Enterprise Shield with AMQP via RabbitMQ ![Enterprise Edition](../../../enterprise-feature.png)
 
-This tutorial shows how to secure a websocket service with TLS/SSL.
+This tutorial shows how to secure Gateway connections using Enterprise Shield&trade;.
 
 ### Getting Started
 
-To run this you must have installed docker and have added a host file entry for kaazing.example.com, as described [here](../README.md)
+To run this example, you must have Docker installed and have added a host file entry for `kaazing.example.com`, as described [here](../README.md)
 
-The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the gateway and netcat.  These will be launched in the following configuration
+The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the Gateway and RabbitMQ broker.  These will be launched in the following configuration
 
-![TODO image goes here]()
+![Enterprise Shield](../../enterprise-shield.png) 
 
-The gateway container will run a echo service that allows WebSocket clients to connect on the front end.  Clients will connect on a "wss" address which denotes a TLS secured websocket url.  The [gateway config file](gateway/echo-wss-gateway-config.xml) is configured with an echo service as follows:
-
-```xml
-    <service>
-    <name>WSS Echo</name>
-    <description>A service that echo's messages back for WSS</description>
-    <accept>wss://kaazing.example.com:8000/</accept>
-
-    <type>echo</type>
-
-    <cross-site-constraint>
-      <!-- Only websockets coming from this origin can access this url -->
-      <allow-origin>https://kaazing.example.com:8000/</allow-origin>
-    </cross-site-constraint>
-  </service>
-```
-
-A security section is added to the config that provides the TLS private key to the gateway:
+The internal Gateway container will run `amqp.proxy` and `directory` services that allow the DMZ Gateway to connect to this internal Gateway. The internal Gateway config file is configured with the following services:
 
 ```xml
-  <security>
-    <keystore>
-      <type>JCEKS</type>
-      <file>keystore.db</file>
-      <password-file>keystore.pw</password-file>
-    </keystore>
-  </security>
+<service>
+	<name>AMQP Tutorial Service</name>
+	<description>A service that proxys to an AMQP backend</description>
+	<accept>wss://internal.example.com:8000/path2/</accept>
+	<connect>tcp://rabbitmq:5672</connect>
+
+	<type>amqp.proxy</type>
+
+	<accept-options>
+		<http.transport>socks://kaazing.example.com:8001</http.transport>
+		<socks.mode>reverse</socks.mode>
+	</accept-options>
+
+</service>
+
+<service>
+	<name>Directory Service</name>
+	<description>
+		Directory Service to serve up secure pages with, file
+		in web directory are available via https
+	</description>
+
+	<accept>https://internal.example.com/path1/</accept>
+
+	<type>directory</type>
+
+	<properties>
+		<directory>/javascript.client.tutorials/amqp</directory>
+		<welcome-file>index.html</welcome-file>
+	</properties>
+
+	<accept-options>
+		<https.bind>443</https.bind>
+		<http.transport>socks://kaazing.example.com:8001</http.transport>
+		<socks.mode>reverse</socks.mode> 
+	</accept-options>
+</service>
 ```
 
-This keystore.db is populated with a private key for kaazing.example.com in the [Dockerfile](gateway/Dockerfile):
-
-```
-keytool -genkeypair -keystore conf/keystore.db -storetype JCEKS -keypass ab987c -storepass ab987c -alias kaazing.example.com -keyalg RSA -dname "CN=kaazing.example.com, OU=Example, O=Example, L=Mountain View, ST=California, C=US"
-```
-
-This private key will be a self-signed certificate, and we will trust it in the browser UI.  If you would prefer to use a Trusted Certificate or to add the self-signed certificate to your truststore you find directions [here](http://kaazing.com/doc/5.0/security/p_tls_trusted/) and [here](http://kaazing.com/doc/5.0/security/p_tls_selfsigned/index.html)
-
-Lastly, in the Dockerfile we have added logic to pull in and build a javascript client example.  We then serve this page from a secure origin via a directory service that is add to the [gateway config](gateway/echo-wss-gateway-config.xml).
+The DMZ Gateway container will run `proxy` and `http.proxy` services that allow WebSocket clients to connect on the front-end. Clients will connect on a `wss://` address which denotes a TLS-secured WebSocket URL. The Gateway config file is configured with the following services:
 
 ```xml
-  <service>
-    <name>Directory Service</name>
-    <description>
-        Directory Service to serve up secure pages with, file
-        in web directory are available via https
-    </description>
+<service>
+	<name>WS Proxy DMZ Gateway</name>
+	<description>A DMZ proxy that forwards websocket connections</description>
+	<accept>wss://kaazing.example.com:8000/</accept>
+	<connect>wss://internal.example.com:8000/path2/</connect>
 
-    <accept>https://kaazing.example.com:8000/</accept>
+	<type>proxy</type>
 
-    <type>directory</type>
+	<connect-options>
+		<http.transport>socks+ssl://kaazing.example.com:8001</http.transport>
+		<socks.mode>reverse</socks.mode>
+	</connect-options>
+  
+	<cross-site-constraint>
+		<!-- Only websockets coming from this origin can access this url -->
+		<allow-origin>https://kaazing.example.com:8000/</allow-origin>
+	</cross-site-constraint>
+</service>
 
-    <properties>
-      <directory>/javascript.client.tutorials/ws</directory>
-      <welcome-file>index.html</welcome-file>
-    </properties>
-  </service>
+<service>
+	<name>Http Proxy DMZ Gateway</name>
+	<description>A DMZ that has no application logic that can be attacked</description>
+	<accept>https://kaazing.example.com:8000/</accept>
+	<connect>https://internal.example.com/path1/</connect>
+
+	<!-- NOTE: http.proxy is currently a BETA release -->
+	<type>http.proxy</type>
+
+	<connect-options>
+		<http.transport>socks+ssl://kaazing.example.com:8001</http.transport>
+		<socks.mode>reverse</socks.mode>
+	</connect-options>
+</service>
 ```
 
 ### Run
@@ -75,13 +97,12 @@ Lastly, in the Dockerfile we have added logic to pull in and build a javascript 
   docker-compose up -d
   ```
 
-2. Connect to the gateway in a web browser via [https://kaazing.example.com:8000/].  You will see a security error saying the certificate is not trusted.  This is because we are using a self-signed certificate.  Proceed anyways (in chrome this is under the advanced drop down displayed).  This will temporarily add the generated self-signed certificate to you truststore.
+2. Connect to the DMZ Gateway in a Web browser via [https://kaazing.example.com:8000/].  You might see a security error saying the certificate is not trusted. This is the result of using a self-signed certificate. Proceed anyways (in Chrome this is under the **Advanced** drop-down menu). This step will temporarily add the generated self-signed certificate to your computer's truststore.
 
-3. Change the connect url of the demo to `wss://kaazing.example.com:8000/` and connect
+3. Change the connect URL of the demo to `wss://kaazing.example.com:8000/` and connect.
 
-4.  When you send a message it should be echo back to you.
+4.  Subscribe and publish AMQP messages as desired.
 
 ### Next Steps
   
-- TODO 
-- TODO
+[See Deployment Scenarios](../../README.md#deployment-scenarios)
