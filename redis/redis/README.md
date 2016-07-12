@@ -1,16 +1,16 @@
-# Redis with Kaazing Gateway
+# Redis with Kaazing Gateway  ![Enterprise Edition](../../enterprise-feature.png)
 
-This tutorial shows how to connect websocket clients to a redis server
+This tutorial shows how to connect WebSocket clients to a Redis server over WebSocket via the Gateway.
 
 ### Getting Started
 
-To run this you must have installed docker and have added a host file entry for kaazing.example.com, as described [here](../../README.md)
+To run this you must have Docker installed and have added a host file entry for `kaazing.example.com`, as described [here](../../README.md)
 
-The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the gateway and the redis server.  These will be launched in the following configuration
+The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the Gateway and the Redis server.  These will be launched in the following configuration:
 
 ![redis architecture](../redis.png)
 
-The gateway container will run a redis service that allows WebSocket clients to connect on the front end.  Clients will connect on a "ws" address.  The [gateway config file](gateway/jms-redis-gateway-config.xml) is configured with a jms service as follows:
+The Gateway container will run a Redis service that allows WebSocket clients to connect on the front-end.  Clients will connect on a `ws` address.  The [Gateway config file](gateway/jms-redis-gateway-config.xml) is configured with a `jms` service as follows:
 
 ```xml
   <service>
@@ -25,7 +25,7 @@ The gateway container will run a redis service that allows WebSocket clients to 
     </properties>
     
     <cross-site-constraint>
-      <!-- Only websockets coming from this origin can access this url -->
+      <!-- Only WebSockets coming from this origin can access this url -->
       <allow-origin>*</allow-origin>
     </cross-site-constraint>
   </service>
@@ -38,11 +38,15 @@ The gateway container will run a redis service that allows WebSocket clients to 
   docker-compose up -d
   ```
   
-2. Connect to the gateway in a web browser via [http://kaazing.example.com:8000/](http://kaazing.example.com:8000/).  
-3. Change the connect url of the demo to `ws://kaazing.example.com:8000/` and connect
+2. Connect to the Gateway in a Web browser via [http://kaazing.example.com:8000/](http://kaazing.example.com:8000/).  
+3. Change the connect URL of the demo to `ws://kaazing.example.com:8000/` and connect.
 
-4. Subscribe/Publish redis messages as desired
+4. Subscribe and publish JMS messages as desired.
 
 ### Note
 
-Redis doesn't support transactions. As such, the client used, which is the JMS client as well, won't work for transactions.
+Redis doesn't support transactions. As such, the JMS client will not work for transactions.
+
+### Next Steps
+  
+[See Deployment Scenarios](../../README.md#deployment-scenarios)
