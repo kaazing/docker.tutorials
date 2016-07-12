@@ -4,13 +4,13 @@ This tutorial describes how to broadcast TCP data to WebSocket clients. [Netcat]
 
 ### Getting Started
 
-To run this example, you must have Docker installed and have added a host file entry for `kaazing.example.com1, as described [here](../../README.md)
+To run this example, you must have Docker installed and have added a host file entry for `kaazing.example.com`, as described [here](../../README.md).
 
-The [docker-compose.yml](docker-compose.yml) describes the two containers it will run: the Gateway and Netcat.These containers will be launched in the following configuration:
+The [docker-compose.yml](docker-compose.yml) describes the two containers it will run: the Gateway and Netcat. These containers will be launched in the following configuration:
 
 ![Broadcast architecture](../broadcast.png)
 
-The Gateway container will run a broadcast service that allows WebSocket clients to connect on the front-end. When a TCP message is sent from Netcat, the Gateway will forward that message to all other connected clients. The [gateway config file](gateway/broadcast-gateway-config.xml) is configured as follows:
+The Gateway container will run a broadcast service that allows WebSocket clients to connect on the front-end. When a TCP message is sent from Netcat, the Gateway will forward that message to all other connected clients. The [Gateway config file](gateway/broadcast-gateway-config.xml) is configured as follows:
 
 ```xml
   <service>
@@ -45,11 +45,11 @@ The Gateway container will run a broadcast service that allows WebSocket clients
 
 2. Connect to the Gateway in a Web browser via [http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/](http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/)
 
-3. Push data through Netcat by running
+3. To push data through Netcat run
   ```bash
   docker-compose exec netcat nc -l 1000
   ```
-  and typing any message you want to send
+  and then type any message you want to send
   
 ### Next Steps
   
