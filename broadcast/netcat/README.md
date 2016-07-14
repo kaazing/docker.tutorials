@@ -8,7 +8,7 @@ To run this example, you must have Docker installed and have added a host file e
 
 The [docker-compose.yml](docker-compose.yml) describes the two containers it will run: the Gateway and Netcat. These containers will be launched in the following configuration:
 
-![Broadcast architecture](../broadcast.png)
+![Broadcast architecture](../docker-broadcast.png)
 
 The Gateway container will run a broadcast service that allows WebSocket clients to connect on the front-end. When a TCP message is sent from Netcat, the Gateway will forward that message to all other connected clients. The [Gateway config file](gateway/broadcast-gateway-config.xml) is configured as follows:
 
