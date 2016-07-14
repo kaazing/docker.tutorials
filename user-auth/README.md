@@ -1,6 +1,6 @@
 # Authenticating Users
 
-![user-auth](authorization.png)
+![user-auth](docker-auth.png)
 
 The Gateway can be configured for user authentication.  A user is authenticated at the HTTP layer prior to the WebSocket handshake negotiation.
 
