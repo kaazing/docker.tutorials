@@ -1,6 +1,6 @@
 # Broadcasting TCP Data to WebSocket Clients
 
-![broadcast](broadcast.png)
+![broadcast](docker-broadcast.png)
 
 The Gateway can be configured to broadcast any TCP backend to WebSocket clients. Example configurations are shown for:
 
