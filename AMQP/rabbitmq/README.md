@@ -8,7 +8,7 @@ To run this example, you must have installed Docker and have added a host file e
 
 The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the Gateway and the RabbitMQ broker. These will be launched in the following configuration:
 
-![AMQP architecture](../amqp.png)
+![AMQP architecture](../docker-amqp.png)
 
 The Gateway container will run a `amqp.proxy` service that allows WebSocket clients to connect on the front-end. Clients will connect on a `wss://` address which denotes a TLS-secured WebSocket URL. The [Gateway config file](gateway/amqp-rabbitmq-gateway-config.xml) is configured with an `amqp.proxy` service as follows:
 
