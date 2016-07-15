@@ -8,7 +8,7 @@ To run this example, you must have Docker installed and have added a host file e
 
 The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the Gateway and RabbitMQ broker.  These will be launched in the following configuration
 
-![Enterprise Shield](../../enterprise-shield.png) 
+![Enterprise Shield](docker-enterprise-shield.png)
 
 The internal Gateway container will run `amqp.proxy` and `directory` services that allow the DMZ Gateway to connect to this internal Gateway. The internal Gateway config file is configured with the following services:
 
