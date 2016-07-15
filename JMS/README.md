@@ -1,6 +1,6 @@
 # JMS and WebSocket  ![Enterprise Edition](../enterprise-feature.png)
 
-![jms](jms.png)
+![jms](docker-jms.png)
 
 The Gateway can be configured as a front-end for JMS, accepting WebSocket JMS client connections and messages and communicating with a backend JMS broker.  Example configurations are shown for:
 
