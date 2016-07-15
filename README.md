@@ -16,23 +16,25 @@ These tutorials also require that the host name `kaazing.example.com` resolve to
 
 Each subdirectory contains a scenario listed below and provides instructions on how to run the setup locally.
 
-**Note:** ![EE] marks demos that require the Kaazing WebSocket Gateway Enterprise Edition.
+**Note:** ![EE] marks demos that require the Kaazing WebSocket Gateway - Enterprise Edition.
+
+The topology graphics below depict how the scenarios would be deployed in an enterprise environment.
 
 * [Broadcasting TCP Data to WebSocket Clients](broadcast)
 
-  ![Broadcast Architecture](broadcast/broadcast.png)
+  ![Broadcast Architecture](broadcast/docker-broadcast.png)
 
 * [Enable WSS (WebSocket over TLS)](wss)
 
-![WSS Architecture](wss/wss.png)
+![WSS Architecture](wss/docker-wss.png)
 
 * [Authenticating Users](user-auth)
 
-![User-Auth Architecture](user-auth/authorization.png)
+![User-Auth Architecture](user-auth/docker-auth.png)
 
 * [AMQP and WebSocket](AMQP)
 
-![AMQP Architecture](AMQP/amqp.png)
+![AMQP Architecture](AMQP/docker-amqp.png)
 
 * [JMS and WebSocket](JMS)  ![EE]
 
