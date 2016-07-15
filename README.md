@@ -16,42 +16,42 @@ These tutorials also require that the host name `kaazing.example.com` resolve to
 
 Each subdirectory contains a scenario listed below and provides instructions on how to run the setup locally.
 
+* 
+* HTTP Proxy - example coming soon.
+* High Availability and Clustering - example coming soon.
+* KWIC ([Kaazing WebSocket Intercloud Connect](http://kaazing.com/kwic/)) - example coming soon  ![EE]
+
+
 **Note:** ![EE] marks demos that require the Kaazing WebSocket Gateway - Enterprise Edition.
 
 The topology graphics below depict how the scenarios would be deployed in an enterprise environment.
 
-* [Broadcasting TCP Data to WebSocket Clients](broadcast)
+#### [Broadcasting TCP Data to WebSocket Clients](broadcast)
 
-  ![Broadcast Architecture](broadcast/docker-broadcast.png)
+![Broadcast Architecture](broadcast/docker-broadcast.png)
 
-* [Enable WSS (WebSocket over TLS)](wss)
+#### [Enable WSS (WebSocket over TLS)](wss)
 
 ![WSS Architecture](wss/docker-wss.png)
 
-* [Authenticating Users](user-auth)
+#### [Authenticating Users](user-auth)
 
 ![User-Auth Architecture](user-auth/docker-auth.png)
 
-* [AMQP and WebSocket](AMQP)
+#### [AMQP and WebSocket](AMQP)
 
 ![AMQP Architecture](AMQP/docker-amqp.png)
 
-* [JMS and WebSocket](JMS)  ![EE]
+#### [JMS and WebSocket](JMS)  ![EE]
 
 ![JMS Architecture](JMS/docker-jms.png)
 
-* [Securing Your Deployments With Enterprise Shield&trade; (Firewall with no open ports for any service)](enterprise-shield) ![EE]
+#### [Securing Your Deployments With Enterprise Shield&trade; (Firewall with no open ports for any service)](enterprise-shield) ![EE]
 
 ![Enterprise Shield](enterprise-shield/enterprise-shield.png) 
 
-* [Redis and WebSocket](redis)  ![EE]
+#### [Redis and WebSocket](redis)  ![EE]
 
 ![Redis Architecture](redis/redis.png)
-
-* HTTP Proxy - example coming soon.
-
-* High Availability and Clustering - example coming soon.
-
-* KWIC ([Kaazing WebSocket Intercloud Connect](http://kaazing.com/kwic/)) - example coming soon  ![EE]
 
 [EE]: enterprise-feature.png "Enterprise Edition Feature"
