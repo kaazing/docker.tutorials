@@ -1,5 +1,7 @@
 # Authenticating Users
 
+The following topology graphic depicts how this scenario would be deployed in an enterprise environment.
+
 ![user-auth](docker-auth.png)
 
 The Gateway can be configured for user authentication.  A user is authenticated at the HTTP layer prior to the WebSocket handshake negotiation.
