@@ -10,7 +10,7 @@ The [docker-compose.yml](docker-compose.yml) describes two containers it will ru
 
 ![redis architecture](../redis.png)
 
-The Gateway container will run a Redis service that allows WebSocket clients to connect on the front-end.  Clients will connect on a `ws` address.  The [Gateway config file](gateway/jms-redis-gateway-config.xml) is configured with a `jms` service as follows:
+The Gateway container will run a Redis service that allows WebSocket clients to connect on the front-end.  Clients will connect on a `ws` address.  The [Gateway config file](gateway/jms-redis-gateway-config.xml) is configured with a `redis` service as follows:
 
 ```xml
   <service>
