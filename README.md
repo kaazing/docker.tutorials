@@ -38,7 +38,7 @@ The topology graphics below depict how the scenarios would be deployed in an ent
 
 * [JMS and WebSocket](JMS)  ![EE]
 
-![JMS Architecture](JMS/jms.png)
+![JMS Architecture](JMS/docker-jms.png)
 
 * [Securing Your Deployments With Enterprise Shield&trade; (Firewall with no open ports for any service)](enterprise-shield) ![EE]
 
