@@ -8,7 +8,7 @@ To run this you must have Docker installed and have added a host file entry for 
 
 The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the Gateway and the Redis server.  These will be launched in the following configuration:
 
-![redis architecture](../redis.png)
+![redis architecture](../docker-redis.png)
 
 The Gateway container will run a Redis service that allows WebSocket clients to connect on the front-end.  Clients will connect on a `ws` address.  The [Gateway config file](gateway/jms-redis-gateway-config.xml) is configured with a `redis` service as follows:
 
