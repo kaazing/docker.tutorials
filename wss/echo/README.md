@@ -8,7 +8,7 @@ To run this you must have installed docker and have added a host file entry for 
 
 The [docker-compose.yml](docker-compose.yml) describes one container: the gateway.  
 
-![wss](../wss.png)
+![wss](../docker-wss.png)
 
 The gateway container will run a echo service that allows WebSocket clients to connect on the front end.  Clients will connect on a "wss" address which denotes a TLS secured websocket url.  The [gateway config file](gateway/echo-wss-gateway-config.xml) is configured with an echo service as follows:
 
