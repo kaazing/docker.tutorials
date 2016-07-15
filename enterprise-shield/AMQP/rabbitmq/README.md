@@ -4,11 +4,11 @@ This tutorial shows how to secure Gateway connections using Enterprise Shield&tr
 
 ### Getting Started
 
-To run this example, you must have Docker installed and have added a host file entry for `kaazing.example.com`, as described [here](../README.md)
+To run this example, you must have Docker installed and have added a host file entry for `kaazing.example.com`, as described [here](../README.md).
 
 The [docker-compose.yml](docker-compose.yml) describes two containers it will run: the Gateway and RabbitMQ broker.  These will be launched in the following configuration
 
-![Enterprise Shield](docker-enterprise-shield.png)
+![Enterprise Shield](../../docker-enterprise-shield.png)
 
 The internal Gateway container will run `amqp.proxy` and `directory` services that allow the DMZ Gateway to connect to this internal Gateway. The internal Gateway config file is configured with the following services:
 
