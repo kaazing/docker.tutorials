@@ -8,3 +8,5 @@ The Gateway Enterprise Shield feature protects your trusted network by initiatin
 
 * [Enterprise Shield](AMQP/rabbitmq)
 
+For more information about Enterprise Shield&trade;, see [About Enterprise Shield&trade;](http://kaazing.com/doc/5.0/enterprise-shield/o_enterprise_shield_checklist/#about-enterprise-shield) from Kaazing.
+
