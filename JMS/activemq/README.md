@@ -8,7 +8,7 @@ To run this example, you must have Docker installed and a host file entry for `k
 
 The [docker-compose.yml](docker-compose.yml) file describes the two containers it will run: the Gateway and the ActiveMQ broker.  These containers are launched in the following configuration:
 
-![JMS architecture](../jms.png)
+![JMS architecture](../docker-jms.png)
 
 The Gateway container will run a `jms` service that enables WebSocket clients to connect on the front-end.  Clients will connect on a `wss://` address which denotes a TLS-secured websocket URL.  The [Gateway config file](gateway/jms-activemq-gateway-config.xml) is configured with a `jms` service as follows:
 
