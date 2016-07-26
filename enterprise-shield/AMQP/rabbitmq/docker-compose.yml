@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     hostname: "kaazing.example.com"
-  internal: 
+  internal.example.com: 
     build: internal
   rabbitmq:
     build: broker
