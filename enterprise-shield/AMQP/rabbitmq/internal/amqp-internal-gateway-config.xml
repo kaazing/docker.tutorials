@@ -9,7 +9,7 @@
     <type>amqp.proxy</type>
 
     <accept-options>
-       <http.transport>socks://kaazing.example.com:8001</http.transport>
+       <http.transport>socks+ssl://kaazing.example.com:8001</http.transport>
        <socks.mode>reverse</socks.mode>
     </accept-options>
 
@@ -32,8 +32,7 @@
     </properties>
 
     <accept-options>
-      <https.bind>443</https.bind>
-      <http.transport>socks://kaazing.example.com:8001</http.transport>
+      <http.transport>socks+ssl://kaazing.example.com:8001</http.transport>
       <socks.mode>reverse</socks.mode> 
     </accept-options>
   </service>
@@ -45,6 +44,7 @@
       <password-file>keystore.pw</password-file>
     </keystore>
     <truststore>
+      <type>JCEKS</type>
       <file>truststore.db</file>
     </truststore>
   </security>

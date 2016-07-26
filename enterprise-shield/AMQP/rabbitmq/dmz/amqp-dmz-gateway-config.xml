@@ -41,6 +41,7 @@
       <password-file>keystore.pw</password-file>
     </keystore>
     <truststore>
+      <type>JCEKS</type>
       <file>truststore.db</file>
     </truststore>
   </security>

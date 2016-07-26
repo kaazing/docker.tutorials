@@ -41,5 +41,5 @@ ADD https://github.com/rabbitmq/rabbitmq-server/releases/download/rabbitmq_v3_6_
 
 # Add gateway config
 COPY amqp-dmz-gateway-config.xml conf/gateway-config.xml
-COPY log4j-config.xml conf/log4j-config.xml
+#COPY log4j-config.xml conf/log4j-config.xml
 
