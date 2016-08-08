@@ -5,5 +5,9 @@ services:
     ports:
       - "8000:8000"
     hostname: "kaazing.example.com"
+    links: 
+      - activemq:activemq_activemq
   activemq:
     build: broker
+    hostname: "kaazing.example.com"
+    image: activemq_activemq

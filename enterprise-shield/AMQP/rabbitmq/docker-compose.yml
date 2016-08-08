@@ -5,7 +5,11 @@ services:
     ports:
       - "8000:8000"
     hostname: "kaazing.example.com"
+    environment:
+      GATEWAY_OPTS: -Dfeature.http.proxy=true -Djava.naming.provider.url=FILE://kaazing-gateway/bin"
   internal.example.com: 
     build: internal
+    environment:
+      GATEWAY_OPTS: -Dfeature.http.proxy=true -Djava.naming.provider.url=FILE://kaazing-gateway/bin"
   rabbitmq:
     build: broker

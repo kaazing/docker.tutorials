@@ -5,5 +5,7 @@ services:
     ports:
       - "8000:8000"
     hostname: "kaazing.example.com"
+    environment: 
+      GATEWAY_OPTS: -Dfeature.redis=true -Djava.naming.provider.url=FILE://kaazing-gateway/bin"
   redis:
     image: redis:latest

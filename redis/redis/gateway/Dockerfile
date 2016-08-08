@@ -9,4 +9,3 @@ RUN  unzip ./web/websocket-jms-tutorial.zip -d ./web
 # Add gateway config
 COPY jms-redis-gateway-config.xml conf/gateway-config.xml
 
-

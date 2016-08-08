@@ -1,7 +1,6 @@
 FROM kaazing/enterprise-gateway:5.0.1
 
 # Generate Keystore entry for kaazing.example.com
-
 RUN keytool -genkeypair -keystore conf/keystore.db -storetype JCEKS -keypass ab987c -storepass ab987c -alias kaazing.example.com -keyalg RSA -dname "CN=kaazing.example.com, OU=Example, O=Example, L=Mountain View, ST=California, C=US"
 
 # Add and Build Javascript Client tutorials to web directory so we can test it from a browser,
