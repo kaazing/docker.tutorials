@@ -7,3 +7,4 @@ services:
     hostname: "kaazing.example.com"
   activemq:
     build: broker
+    image: webcenter/activemq:latest

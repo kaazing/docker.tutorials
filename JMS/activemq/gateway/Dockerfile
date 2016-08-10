@@ -29,8 +29,8 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
-#RUN git clone https://github.com/kaazing/javascript.client.tutorials ./web/javascript.client.tutorials
-#RUN npm --prefix ./web/javascript.client.tutorials/jms install ./web/javascript.client.tutorials/jms 
+RUN git clone https://github.com/kaazing/javascript.client.tutorials ./web/javascript.client.tutorials
+RUN npm --prefix ./web/javascript.client.tutorials/jms install ./web/javascript.client.tutorials/jms 
 
 # Add broker specific client libs, but activemq is included OOTB
 ADD http://central.maven.org/maven2/org/apache/activemq/activemq-client/5.10.0/activemq-client-5.10.0.jar lib/ext/

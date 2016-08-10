@@ -29,8 +29,8 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
-#RUN git clone https://github.com/kaazing/javascript.client.tutorials ./web/javascript.client.tutorials
-#RUN npm --prefix ./web/javascript.client.tutorials/amqp install ./web/javascript.client.tutorials/amqp 
+RUN git clone https://github.com/kaazing/javascript.client.tutorials ./web/javascript.client.tutorials
+RUN npm --prefix ./web/javascript.client.tutorials/amqp install ./web/javascript.client.tutorials/amqp 
 
 # Add rabbitmq client libs
 ADD https://github.com/rabbitmq/rabbitmq-server/releases/download/rabbitmq_v3_6_2/rabbitmq-java-client-bin-3.6.2.tar.gz lib/ext/
