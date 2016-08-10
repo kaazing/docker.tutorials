@@ -1,4 +1,4 @@
-FROM kaazing/enterprise-gateway:5.0.1
+FROM kaazing/enterprise-gateway:latest
 
 # Generate Keystore entry for kaazing.example.com
 RUN keytool -genkeypair -keystore conf/keystore.db -storetype JCEKS -keypass ab987c -storepass ab987c -alias kaazing.example.com -keyalg RSA -dname "CN=kaazing.example.com, OU=Example, O=Example, L=Mountain View, ST=California, C=US"
@@ -29,12 +29,14 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
-RUN git clone https://github.com/kaazing/javascript.client.tutorials ./web/javascript.client.tutorials
-RUN npm --prefix ./web/javascript.client.tutorials/jms install ./web/javascript.client.tutorials/jms 
+#RUN git clone https://github.com/kaazing/javascript.client.tutorials ./web/javascript.client.tutorials
+#RUN npm --prefix ./web/javascript.client.tutorials/jms install ./web/javascript.client.tutorials/jms 
 
 # Add broker specific client libs, but activemq is included OOTB
-#ADD http://central.maven.org/maven2/org/apache/activemq/activemq-client/5.10.0/activemq-client-5.10.0.jar lib/ext/
+ADD http://central.maven.org/maven2/org/apache/activemq/activemq-client/5.10.0/activemq-client-5.10.0.jar lib/ext/
+
+ADD http://central.maven.org/maven2/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1/geronimo-jms_1.1_spec-1.1.jar lib/ext/
+ADD http://central.maven.org/maven2/org/apache/geronimo/specs/geronimo-j2ee-management_1.1_spec/1.0.1/geronimo-j2ee-management_1.1_spec-1.0.1.jar lib/ext/
 
 # Add gateway config
 COPY jms-activemq-gateway-config.xml conf/gateway-config.xml
-

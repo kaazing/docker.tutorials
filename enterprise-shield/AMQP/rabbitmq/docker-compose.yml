@@ -6,10 +6,10 @@ services:
       - "8000:8000"
     hostname: "kaazing.example.com"
     environment:
-      GATEWAY_OPTS: -Dfeature.http.proxy=true -Djava.naming.provider.url=FILE://kaazing-gateway/bin"
+      GATEWAY_OPTS: -Dfeature.http.proxy=true
   internal.example.com: 
     build: internal
     environment:
-      GATEWAY_OPTS: -Dfeature.http.proxy=true -Djava.naming.provider.url=FILE://kaazing-gateway/bin"
+      GATEWAY_OPTS: -Dfeature.http.proxy=true
   rabbitmq:
     build: broker
