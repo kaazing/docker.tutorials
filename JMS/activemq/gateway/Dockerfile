@@ -22,10 +22,10 @@ RUN set -ex \
 
 ENV NODE_VERSION 0.10.45
 
-RUN curl -LOk  https://github.com/kaazing/javascript.client.tutorials/files/324464/websocket-jms-tutorial.zip
-RUN unzip ./websocket-jms-tutorial.zip
-RUN mkdir -p ./web/javascript.client.tutorials/jms
-RUN cp -r ./websocket-jms-tutorial/* ./web/javascript.client.tutorials/jms/
+RUN curl -LOk https://github.com/kaazing/javascript.client.tutorials/files/324464/websocket-jms-tutorial.zip \
+    && unzip ./websocket-jms-tutorial.zip \
+    && mkdir -p ./web/javascript.client.tutorials/jms \
+    && cp -r ./websocket-jms-tutorial/* ./web/javascript.client.tutorials/jms/
 
 # Add broker specific client libs
 ADD http://central.maven.org/maven2/org/apache/activemq/activemq-client/5.10.0/activemq-client-5.10.0.jar lib/ext/

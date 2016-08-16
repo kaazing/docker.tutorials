@@ -22,12 +22,11 @@ RUN set -ex \
 
 ENV NODE_VERSION 0.10.45
 
-RUN curl -LOk  https://github.com/kaazing/javascript.client.tutorials/files/324464/websocket-jms-tutorial.zip
-RUN unzip ./websocket-jms-tutorial.zip
-RUN mkdir -p ./web/javascript.client.tutorials/ws
-RUN cp -r ./websocket-jms-tutorial/* ./web/javascript.client.tutorials/ws/
+RUN curl -LOk  https://github.com/kaazing/javascript.client.tutorials/files/324464/websocket-jms-tutorial.zip \
+    && unzip ./websocket-jms-tutorial.zip \
+    && mkdir -p ./web/javascript.client.tutorials/ws \
+    && cp -r ./websocket-jms-tutorial/* ./web/javascript.client.tutorials/ws/
 
 # Add config
 COPY echo-auth-gateway-config.xml conf/gateway-config.xml
 COPY jaas-config.xml conf/jaas-config.xml
-
