@@ -9,4 +9,4 @@ RUN  unzip ./web/websocket-jms-tutorial.zip -d ./web
 # Add gateway config
 COPY jms-redis-gateway-config.xml conf/gateway-config.xml
 
-
+ADD http://central.maven.org/maven2/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1/geronimo-jms_1.1_spec-1.1.jar lib/ext/

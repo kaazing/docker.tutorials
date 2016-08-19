@@ -6,4 +6,4 @@ services:
       - "8000:8000"
     hostname: "kaazing.example.com"
   activemq:
-    build: broker
+    image: webcenter/activemq:latest

@@ -1,3 +1,3 @@
-FROM kaazing/enterprise-gateway:5.0.1
+FROM kaazing/enterprise-gateway:latest
 
 COPY broadcast-gateway-config.xml conf/gateway-config.xml
