@@ -45,11 +45,13 @@ The Gateway container will run a broadcast service that allows WebSocket clients
 
 2. Connect to the Gateway in a Web browser via [http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/](http://websocket.org/echo.html?location=ws://kaazing.example.com:8000/)
 
-3. To push data through Netcat run
+3. To push data through Netcat run :
   ```bash
   docker-compose exec netcat nc -l 1000
   ```
   and then type any message you want to send
+  
+  This works only for Linux because docker-compose exec command on Windows currently only supports detached mode (-d) -> [here](https://github.com/docker/compose/issues/3374)
   
 ### Next Steps
   
