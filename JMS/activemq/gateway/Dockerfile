@@ -28,7 +28,7 @@ RUN curl -LOk https://github.com/kaazing/javascript.client.tutorials/files/32446
     && cp -r ./websocket-jms-tutorial/* ./web/javascript.client.tutorials/jms/
 
 # Add broker specific client libs
-ADD http://central.maven.org/maven2/org/apache/activemq/activemq-client/5.10.0/activemq-client-5.10.0.jar lib/ext/
+ADD http://central.maven.org/maven2/org/apache/activemq/activemq-client/5.14.1/activemq-client-5.14.1.jar lib/ext/
 
 ADD http://central.maven.org/maven2/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1/geronimo-jms_1.1_spec-1.1.jar lib/ext/
 ADD http://central.maven.org/maven2/org/apache/geronimo/specs/geronimo-j2ee-management_1.1_spec/1.0.1/geronimo-j2ee-management_1.1_spec-1.0.1.jar lib/ext/
