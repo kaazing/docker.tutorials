@@ -21,7 +21,6 @@ Each subdirectory contains a scenario listed below and provides instructions on 
 * [Authenticating Users](user-auth)
 * [AMQP and WebSocket](AMQP)
 * [JMS and WebSocket](JMS)  ![EE]
-* [Redis and WebSocket](redis)  ![EE]
 * [Securing Your Deployments With Enterprise Shield&trade; (Firewall with no open ports for any service)](enterprise-shield) ![EE]
 * HTTP Proxy - example coming soon.
 * High Availability and Clustering - example coming soon.
