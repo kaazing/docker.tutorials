@@ -58,6 +58,6 @@ For version 5.10.0 you must start the containers with
   ```bash
   docker-compose -f docker-compose.5.10.0.yml up -d
   ```
-[See Error when connect with admin account] (https://github.com/disaster37/activemq/issues/6)
+[See Error when connect with admin account](https://github.com/disaster37/activemq/issues/6)
 
 For other versions you must change the activemq image in [docker-compose.yml](docker-compose.yml).
