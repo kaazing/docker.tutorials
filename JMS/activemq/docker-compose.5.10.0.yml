@@ -1,0 +1,15 @@
+version: '2'
+services:
+  gateway:
+    build: gateway
+    environment:
+      GATEWAY_OPTS: -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n
+    ports:
+      - "8000:8000"
+      - "4000:4000"
+    hostname: "kaazing.example.com"
+  activemq:
+    image: webcenter/activemq:5.10.0
+    command: bash -c "sed -i 's/activemq-domain/activemq/g' /opt/activemq/conf/activemq.xml && /app/init start"
+
+    
