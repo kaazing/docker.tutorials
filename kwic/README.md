@@ -2,4 +2,4 @@
 
 KWIC Scenarios:
 
-* [KWIC High Availability](kwic-ha)
+* [KWIC High Availability (HA)](kwic-ha)
