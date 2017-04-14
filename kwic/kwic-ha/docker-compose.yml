@@ -39,8 +39,6 @@ services:
       - "6661:6661"
     networks:
       kwic-ha:
-        aliases:
-          - onprem.example.org
 
   onprem2.example.org:
     image: kaazing/enterprise-gateway:latest
@@ -51,8 +49,6 @@ services:
       - "6662:6661"
     networks:
       kwic-ha:
-        aliases:
-          - onprem.example.org
 
   a:
     image: kaazing/enterprise-gateway:latest
