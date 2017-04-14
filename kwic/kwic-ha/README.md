@@ -34,7 +34,7 @@ If either **cloud1** or **cloud2** go down, there is still a path forward for th
 
 # Requirements
 
-See the the **Requirements** section in the [main README](../../README.md).
+See the the **Requirements** section in the [main README](../..).
 
 This tutorial does not need any modification to your hosts file.
 
