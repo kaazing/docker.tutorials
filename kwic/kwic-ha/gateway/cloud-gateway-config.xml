@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gateway-config xmlns="http://xmlns.kaazing.org/2015/11/gateway">
+
+
+  <properties>
+
+    <property>
+      <name>service-a-hostname</name>
+      <value>a</value>
+    </property>
+
+    <property>
+      <name>service-a-port</name>
+      <value>5551</value>
+    </property>
+
+    <property>
+      <name>service-b-hostname</name>
+      <value>b</value>
+    </property>
+
+    <property>
+      <name>service-b-port</name>
+      <value>6661</value>
+    </property>
+
+    <property>
+      <name>cloud-hostname</name>
+      <value>cloud.example.com</value>
+    </property>
+
+    <property>
+      <name>cloud-port</name>
+      <value>443</value>
+    </property>
+
+    <!--
+    The following properties are specific to each gateway instance, and will be set
+    by the external environment.
+
+    <property>
+      <name>cloud-node-hostname</name>
+      <value></value>
+    </property>
+
+    <property>
+      <name>other-cluster-member-ip</name>
+      <value></value>
+    </property>
+    -->
+
+  </properties>
+
+
+  <cluster>
+    <name>kzha</name>
+    <accept>tcp://@eth0:5941</accept>
+    <connect>tcp://${other-cluster-member-ip}:5941</connect>
+  </cluster>
+
+
+  <service>
+    <name>Service A Proxy</name>
+    <accept>tcp://@eth0:${service-a-port}</accept>
+    <connect>pipe://${cloud-node-hostname}</connect>
+
+    <type>proxy</type>
+
+    <connect-options>
+      <pipe.transport>socks://${service-a-hostname}</pipe.transport>
+      <socks.mode>reverse</socks.mode>
+      <socks.transport>wsn://${cloud-node-hostname}:${cloud-port}/${service-a-hostname}</socks.transport>
+    </connect-options>
+  </service>
+
+
+  <service>
+    <name>Service B Balancer</name>
+    <accept>ws://${cloud-hostname}:${cloud-port}/${service-b-hostname}</accept>
+
+    <type>balancer</type>
+
+    <accept-options>
+      <!-- <http.transport>tcp://@eth0:${cloud-port}</http.transport> -->
+      <!-- The previous line should work, except for bug kaazing/tickets#1059 -->
+      <!-- Workaround: Use tcp.bind instead -->
+      <tcp.bind>${cloud-port}</tcp.bind>
+    </accept-options>
+  </service>
+
+
+  <service>
+    <name>Service B Proxy</name>
+    <accept>ws://${cloud-node-hostname}:${cloud-port}/${service-b-hostname}</accept>
+    <connect>tcp://${service-b-hostname}:${service-b-port}</connect>
+    <balance>ws://${cloud-hostname}:${cloud-port}/${service-b-hostname}</balance>
+
+    <type>proxy</type>
+
+  </service>
+
+
+</gateway-config>
