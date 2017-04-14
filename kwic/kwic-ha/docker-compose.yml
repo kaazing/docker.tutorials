@@ -1,0 +1,77 @@
+version: '2'
+
+services:
+
+  cloud1.example.com:
+    image: kaazing/enterprise-gateway:latest
+    environment:
+      GATEWAY_OPTS: "-Dcloud-node-hostname=cloud1.example.com -Dother-cluster-member-ip=cloud2.example.com"
+    volumes:
+      - ./gateway/cloud-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
+      - ./gateway/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
+    ports:
+      - "5551:5551"
+    networks:
+      kwic-ha:
+        aliases:
+         - cloud.example.com
+
+  cloud2.example.com:
+    image: kaazing/enterprise-gateway:latest
+    environment:
+      GATEWAY_OPTS: "-Dcloud-node-hostname=cloud2.example.com -Dother-cluster-member-ip=cloud1.example.com"
+    volumes:
+      - ./gateway/cloud-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
+      - ./gateway/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
+    ports:
+      - "5552:5551"
+    networks:
+      kwic-ha:
+        aliases:
+         - cloud.example.com
+
+  onprem1.example.org:
+    image: kaazing/enterprise-gateway:latest
+    volumes:
+      - ./gateway/onprem-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
+      - ./gateway/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
+    ports:
+      - "6661:6661"
+    networks:
+      kwic-ha:
+
+  onprem2.example.org:
+    image: kaazing/enterprise-gateway:latest
+    volumes:
+      - ./gateway/onprem-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
+      - ./gateway/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
+    ports:
+      - "6662:6661"
+    networks:
+      kwic-ha:
+
+  a:
+    image: kaazing/enterprise-gateway:latest
+    environment:
+      GATEWAY_OPTS: "-Dservice-hostname=a -Dservice-port=5551"
+    volumes:
+      - ./gateway/echo-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
+    networks:
+      kwic-ha:
+
+  b:
+    image: kaazing/enterprise-gateway:latest
+    environment:
+      GATEWAY_OPTS: "-Dservice-hostname=b -Dservice-port=6661"
+    volumes:
+      - ./gateway/echo-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
+    networks:
+      kwic-ha:
+
+networks:
+  kwic-ha:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+          gateway: 172.32.0.1
