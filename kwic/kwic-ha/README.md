@@ -40,13 +40,19 @@ This tutorial does not need any modification to your hosts file.
 
 # Running the tutorial
 
-In this tutorial we use netcat as the TCP client **Client A** and **Client B**. You run netcat by specifying a host or IP address, and a port. Once it is connected, you can type something and hit Enter, and you will see your message echoed back.
+In this tutorial we use **netcat** for the TCP client **Client A** and **Client B**. You run **netcat** by specifying a hostname or IP address, and a port. Once it is connected, you can type something and hit Enter, and you will see your message echoed back.
 
-As you connect with netcat, you can watch the terminal window where Docker Compose is running, and see from the gateway logging output which gateways are being used.
+If you are running on Windows, or don't have **netcat** installed, everywhere you see `nc 192.168.99.100 5551` in the steps below, replace it with the following command:
+
+```bash
+docker run -it --rm  konjak/netcat 192.168.99.100 5551
+```
+
+When you connect with **netcat** and type messages, watch the terminal window where Docker Compose is running, and you'll see from the gateway logging output which gateways are being used.
 
 The following steps also have you bring down a gateway so you see that connectivity still succeeds, i.e., high availability.
 
-Sample commands:
+## Sample commands
 
 ```bash
 $ docker-compose up
