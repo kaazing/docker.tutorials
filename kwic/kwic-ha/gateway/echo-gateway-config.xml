@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<gateway-config xmlns="http://xmlns.kaazing.org/2015/11/gateway">
+<gateway-config xmlns="http://xmlns.kaazing.org/2016/06/gateway">
 
 
   <!--
