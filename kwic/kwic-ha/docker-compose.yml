@@ -3,7 +3,7 @@ version: '2'
 services:
 
   cloud1.example.com:
-    image: kaazing/enterprise-gateway:latest
+    image: kaazing/enterprise-gateway:5.6.0
     environment:
       GATEWAY_OPTS: "-Dcloud-node-hostname=cloud1.example.com -Dother-cluster-member-ip=cloud2.example.com"
     volumes:
@@ -17,7 +17,7 @@ services:
          - cloud.example.com
 
   cloud2.example.com:
-    image: kaazing/enterprise-gateway:latest
+    image: kaazing/enterprise-gateway:5.6.0
     environment:
       GATEWAY_OPTS: "-Dcloud-node-hostname=cloud2.example.com -Dother-cluster-member-ip=cloud1.example.com"
     volumes:
@@ -31,7 +31,7 @@ services:
          - cloud.example.com
 
   onprem1.example.org:
-    image: kaazing/enterprise-gateway:latest
+    image: kaazing/enterprise-gateway:5.6.0
     volumes:
       - ./gateway/onprem-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./gateway/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
@@ -41,7 +41,7 @@ services:
       kwic-ha:
 
   onprem2.example.org:
-    image: kaazing/enterprise-gateway:latest
+    image: kaazing/enterprise-gateway:5.6.0
     volumes:
       - ./gateway/onprem-gateway-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./gateway/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
@@ -51,7 +51,7 @@ services:
       kwic-ha:
 
   a:
-    image: kaazing/enterprise-gateway:latest
+    image: kaazing/enterprise-gateway:5.6.0
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=a -Dservice-port=5551"
     volumes:
@@ -60,7 +60,7 @@ services:
       kwic-ha:
 
   b:
-    image: kaazing/enterprise-gateway:latest
+    image: kaazing/enterprise-gateway:5.6.0
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=b -Dservice-port=6661"
     volumes:

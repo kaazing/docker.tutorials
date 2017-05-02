@@ -45,7 +45,7 @@ In this tutorial we use **netcat** for the TCP client **Client A** and **Client 
 If you are running on Windows, or don't have **netcat** installed, everywhere you see `nc 192.168.99.100 5551` in the steps below, replace it with the following command:
 
 ```bash
-docker run -it --rm  konjak/netcat 192.168.99.100 5551
+docker run -it --rm konjak/netcat 192.168.99.100 5551
 ```
 
 When you connect with **netcat** and type messages, watch the terminal window where Docker Compose is running, and you'll see from the gateway logging output which gateways are being used.

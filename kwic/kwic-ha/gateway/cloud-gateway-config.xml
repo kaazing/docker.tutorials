@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<gateway-config xmlns="http://xmlns.kaazing.org/2015/11/gateway">
+<gateway-config xmlns="http://xmlns.kaazing.org/2016/06/gateway">
 
 
   <properties>
@@ -61,6 +61,7 @@
 
   <service>
     <name>Service A Proxy</name>
+
     <accept>tcp://@eth0:${service-a-port}</accept>
     <connect>pipe://${cloud-node-hostname}</connect>
 
@@ -69,13 +70,15 @@
     <connect-options>
       <pipe.transport>socks://${service-a-hostname}</pipe.transport>
       <socks.mode>reverse</socks.mode>
-      <socks.transport>wsn://${cloud-node-hostname}:${cloud-port}/${service-a-hostname}</socks.transport>
+      <socks.transport>ws://${cloud-node-hostname}:${cloud-port}/${service-a-hostname}</socks.transport>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
     </connect-options>
   </service>
 
 
   <service>
     <name>Service B Balancer</name>
+
     <accept>ws://${cloud-hostname}:${cloud-port}/${service-b-hostname}</accept>
 
     <type>balancer</type>
@@ -91,12 +94,16 @@
 
   <service>
     <name>Service B Proxy</name>
+
     <accept>ws://${cloud-node-hostname}:${cloud-port}/${service-b-hostname}</accept>
     <connect>tcp://${service-b-hostname}:${service-b-port}</connect>
     <balance>ws://${cloud-hostname}:${cloud-port}/${service-b-hostname}</balance>
 
     <type>proxy</type>
 
+    <accept-options>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    <accept-options>
   </service>
 
 
