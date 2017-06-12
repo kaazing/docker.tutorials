@@ -40,6 +40,8 @@ This tutorial does not need any modification to your hosts file.
 
 # Running the tutorial
 
+**Note:** Before you start, log into docker (`docker login`) via the CLI. This will enable the `docker-compose up` command to retrieve files from Docker.
+
 In this tutorial we use **netcat** for the TCP client **Client A** and **Client B**. You run **netcat** by specifying a hostname or IP address, and a port. Once it is connected, you can type something and hit Enter, and you will see your message echoed back.
 
 If you are running on Windows, or don't have **netcat** installed, everywhere you see `nc 192.168.99.100 5551` in the steps below, replace it with the following command:
