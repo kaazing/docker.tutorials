@@ -103,7 +103,7 @@
 
     <accept-options>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
-    <accept-options>
+    </accept-options>
   </service>
 
 
