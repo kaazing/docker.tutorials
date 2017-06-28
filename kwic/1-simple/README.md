@@ -58,7 +58,16 @@ docker run -it --rm konjak/netcat 192.168.99.100 5551
     $ docker-compose up
     ```
 
-    It may take a few moments for all of the containers to start.
+    It may take a few moments for all of the containers to start. It's probably ready when you see something like the following lines in the log output on the screen:
+
+    ```
+    example.com_1  | INFO  [wsn#4 172.32.0.5:36764] OPENED: (#00000004: kzg wsn, server, ws://example.com:80/kwic => ws://example.com/kwic)
+    example.com_1  | INFO  [wsn#6 172.32.0.5:36766] OPENED: (#00000006: kzg wsn, server, ws://example.com:80/kwic => ws://example.com/kwic)
+    onprem_1       | INFO  [wsn#5 172.32.0.5:36764] OPENED: (#00000005: kzg wsn, client, ws://example.com:80/kwic => ws://example.com/kwic)
+    onprem_1       | INFO  [wsn#6 172.32.0.5:36766] OPENED: (#00000006: kzg wsn, client, ws://example.com:80/kwic => ws://example.com/kwic)
+    ```
+
+    Those lines indicate that the on-prem instance established a reverse connection to the cloud instance. Since there are two services with reverse connectivity – **service A** and **service C** – we expect to see two pair of log lines (for a total of 4 lines).
 
 1. In another terminal window, test **client A** connecting to **server A** using netcat. Once it is connected, type `hello` and hit Enter. You will see your message echoed back. Type some more messages if you like, pressing Enter each time. When done, press Ctrl-C to exit netcat.
 
