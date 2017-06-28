@@ -1,6 +1,6 @@
-# KWIC No TLS
+# KWIC
 
-Demonstrate KWIC in the clear, without TLS/SSL security for simplicity.
+Demonstrate a simple KWIC scenario. For simplicity, this scenario is in the clear without TLS/SSL.
 
 ![KWIC](img/kwic-no-tls.jpg)
 
