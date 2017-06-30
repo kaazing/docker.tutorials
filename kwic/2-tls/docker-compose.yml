@@ -17,8 +17,8 @@ services:
     volumes:
       - ./config/cloud-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./config/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
-      - ./utils/wait-for-files.sh:/wait-for-files.sh
-      - x509:/x509
+      - ./utils/wait-for-files.sh:/wait-for-files.sh:ro
+      - x509:/x509:ro
     ports:
       - "5551:5551"
       - "7771:7771"
@@ -27,6 +27,8 @@ services:
     command: bash -c "/wait-for-files.sh
                          /x509/stores/keystore-cloud.jceks
                          /x509/stores/keystore-cloud.pw
+                         /x509/stores/truststore-cloud.jceks
+                         /x509/stores/truststore-cloud.pw
                       && sleep 1
                       && gateway.start"
 
@@ -36,14 +38,16 @@ services:
     volumes:
       - ./config/onprem-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./config/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
-      - ./utils/wait-for-files.sh:/wait-for-files.sh
-      - x509:/x509
+      - ./utils/wait-for-files.sh:/wait-for-files.sh:ro
+      - x509:/x509:ro
     ports:
       - "6661:6661"
       - "8881:8881"
     networks:
       kwic-net:
     command: bash -c "/wait-for-files.sh
+                         /x509/stores/keystore-onprem.jceks
+                         /x509/stores/keystore-onprem.pw
                          /x509/stores/truststore-onprem.jceks
                          /x509/stores/truststore-onprem.pw
                       && sleep 1
@@ -93,5 +97,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.32.0.0/16
-          gateway: 172.32.0.1
+        - subnet: 172.33.0.0/16
+          gateway: 172.33.0.1

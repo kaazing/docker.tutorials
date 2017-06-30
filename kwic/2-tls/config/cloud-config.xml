@@ -13,11 +13,12 @@
     <connect-options>
       <pipe.transport>socks://example.com</pipe.transport>
       <socks.mode>reverse</socks.mode>
-      <socks.transport>ws://example.com/kwic</socks.transport>
+      <socks.transport>wss://example.com/kwic</socks.transport>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+      <!-- Commenting out the following line because of a bug with client certs: tickets#1126 -->
+      <!-- <socks.tls.verify-client>required</socks.tls.verify-client> -->
     </connect-options>
   </service>
-
 
   <service>
     <name>service B</name>
@@ -29,9 +30,10 @@
 
     <accept-options>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+      <!-- Commenting out the following line because of a bug with client certs: tickets#1126 -->
+      <!-- <tls.verify-client>required</tls.verify-client> -->
     </accept-options>
   </service>
-
 
   <security>
 
@@ -40,6 +42,12 @@
       <file>/x509/stores/keystore-cloud.jceks</file>
       <password-file>/x509/stores/keystore-cloud.pw</password-file>
     </keystore>
+
+    <truststore>
+      <type>JCEKS</type>
+      <file>/x509/stores/truststore-cloud.jceks</file>
+      <password-file>/x509/stores/truststore-cloud.pw</password-file>
+    </truststore>
 
   </security>
 

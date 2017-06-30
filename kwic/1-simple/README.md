@@ -2,7 +2,7 @@
 
 Demonstrate a simple KWIC scenario. For simplicity, this scenario is in the clear without TLS/SSL.
 
-![KWIC](img/kwic-no-tls.jpg)
+![KWIC](img/kwic-simple.jpg)
 
 In this scenario, the on-premise side is behind a firewall. (There is no actual firewall deployed in this tutorial, but the configuration is consistent with a firewall being present.)
 
@@ -14,7 +14,7 @@ These cases are shown in green in the diagram.
 
 There are two clients in the cloud side, **client A** and **client C**, who can connect to two servers on premise, **server A** and **server C**. The clients initiate connectivity by connecting to the cloud KWIC instance on ports 5551 and 7771, which get proxied through KWIC to the servers on premise.
 
-The purple arrows indicate a (pyhiscal) reverse connection made from the on-premise KWIC instance to the cloud KWIC instance. This reverse connection is then consumed by the (logical) forwards connection created when the client connects.
+The purple arrows indicate a (psychical) reverse connection made from the on-premise KWIC instance to the cloud KWIC instance. This reverse connection is then consumed by the (logical) forwards connection created when the client connects.
 
 ## Connecting from on-premise to cloud
 

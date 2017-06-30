@@ -13,7 +13,7 @@
     <accept-options>
       <pipe.transport>socks://example.com</pipe.transport>
       <socks.mode>reverse</socks.mode>
-      <socks.transport>ws://example.com/kwic</socks.transport>
+      <socks.transport>wss://example.com/kwic</socks.transport>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
     </accept-options>
   </service>
@@ -34,6 +34,12 @@
 
 
   <security>
+
+    <keystore>
+      <type>JCEKS</type>
+      <file>/x509/stores/keystore-onprem.jceks</file>
+      <password-file>/x509/stores/keystore-onprem.pw</password-file>
+    </keystore>
 
     <truststore>
       <type>JCEKS</type>
