@@ -15,7 +15,7 @@
 
     <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%c] %-5p %m%n"/>
+            <param name="ConversionPattern" value="%-5p %m%n"/>
         </layout>
         <!-- Avoid double logging of ERROR and above -->
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
