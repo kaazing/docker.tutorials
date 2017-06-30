@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gateway-config xmlns="http://xmlns.kaazing.org/2016/06/gateway">
+
+
+  <service>
+    <name>service A</name>
+
+    <accept>pipe://serviceA</accept>
+    <connect>tcp://server-a:5551</connect>
+
+    <type>proxy</type>
+
+    <accept-options>
+      <pipe.transport>socks://example.com</pipe.transport>
+      <socks.mode>reverse</socks.mode>
+      <socks.transport>ws://example.com/kwic</socks.transport>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </accept-options>
+  </service>
+
+
+  <service>
+    <name>service B</name>
+
+    <accept>tcp://@eth0:6661</accept>
+    <connect>wss://example.com:443/serviceB</connect>
+
+    <type>proxy</type>
+
+    <connect-options>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </connect-options>
+  </service>
+
+
+  <security>
+
+    <truststore>
+      <type>JCEKS</type>
+      <file>/x509/stores/truststore-onprem.jceks</file>
+      <password-file>/x509/stores/truststore-onprem.pw</password-file>
+    </truststore>
+
+  </security>
+
+</gateway-config>
