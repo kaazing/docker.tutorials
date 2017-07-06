@@ -1,6 +1,6 @@
 # KWIC TLS
 
-(**Note:** Please complete the [KWIC 1-Simple tutorial](../1-simple) before starting this one.)
+(**Note:** Please complete the [KWIC 1-Simple](../1-simple) tutorial before starting this one.)
 
 Demonstrate a KWIC scenario with TLS/SSL.
 
@@ -58,7 +58,7 @@ docker run -it --rm konjak/netcat 192.168.99.100 5551
     $ docker-compose up
     ```
 
-    It may take a few moments for all of the containers to start. It's probably ready when you see something like the following lines in the log output on the screen:
+    It may take a few moments for all of the containers to start. It's probably ready when you see something like the following lines in the log output on the screen (note that these lines may not be grouped together in the output depending on the order Docker starts containers):
 
     ```
     example.com_1  | INFO  [tcp#1 172.32.0.4:40484] OPENED: (#00000001: kaazing tcp, server, /172.32.0.4:40484 => /172.32.0.6:443)
@@ -76,9 +76,10 @@ docker run -it --rm konjak/netcat 192.168.99.100 5551
 
     If you don't have netcat installed, then do `docker run -it --rm konjak/netcat 192.168.99.100 5551`.
 
-    If you successfully see the message echoed back, then you know there was roundtrip communication from the netcat client, through the cloud KWIC instance, through the on-prem KWIC instance, to the endpoint **server A**, and back.
+    If you successfully see the message echoed back, then you know there was roundtrip communication from the netcat client, through the cloud KWIC instance, through the on-prem KWIC instance, to the endpoint **server A**, and back. You can also look at the log output in the Docker Compose terminal window to see the connections being created and stopped.
 
     ```bash
+    # Test client A to server A
     $ nc 192.168.99.100 5551
     hello
     hello
