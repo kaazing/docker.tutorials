@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gateway-config xmlns="http://xmlns.kaazing.org/2016/06/gateway">
+
+
+  <service>
+    <name>service C</name>
+
+    <accept>pipe://serviceC</accept>
+    <connect>tcp://server-a:5551</connect>
+
+    <type>proxy</type>
+
+    <accept-options>
+      <pipe.transport>socks://example.com</pipe.transport>
+      <socks.mode>reverse</socks.mode>
+      <socks.transport>wss://example.com/kwic</socks.transport>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </accept-options>
+  </service>
+
+
+  <service>
+    <name>service D</name>
+
+    <accept>tcp://@eth0:6661</accept>
+    <connect>wss://example.com:443/serviceD</connect>
+
+    <type>proxy</type>
+
+    <connect-options>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </connect-options>
+  </service>
+
+
+  <security>
+
+    <keystore>
+      <type>JCEKS</type>
+      <file>/x509/stores/keystore-tenant201.jceks</file>
+      <password-file>/x509/stores/keystore-tenant201.pw</password-file>
+    </keystore>
+
+    <truststore>
+      <type>JCEKS</type>
+      <file>/x509/stores/truststore-tenant201.jceks</file>
+      <password-file>/x509/stores/truststore-tenant201.pw</password-file>
+    </truststore>
+
+  </security>
+
+
+</gateway-config>
