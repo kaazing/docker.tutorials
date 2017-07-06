@@ -228,7 +228,7 @@ function create_client_cert()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Client cert: Creating the certificate signing request: ${CLIENT_CSR}"
+  echo "${CLIENT_ALIAS} cert: Creating the certificate signing request: ${CLIENT_CSR}"
   echo "------------------------------------------------------------------------------"
   openssl req -new \
               -config ${CONF_DIR}/client.conf \
@@ -240,7 +240,7 @@ function create_client_cert()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Client cert: Creating the certificate (CSR signed with signing CA): ${CLIENT_CERT}"
+  echo "${CLIENT_ALIAS} cert: Creating the certificate (CSR signed with signing CA): ${CLIENT_CERT}"
   echo "------------------------------------------------------------------------------"
   openssl ca -config ${CONF_DIR}/root-ca.conf \
              -extensions client_ext \
@@ -259,7 +259,7 @@ function create_client_cert()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Client cert: Converting key and certificate to PKCS12 format: ${PKCS12}"
+  echo "${CLIENT_ALIAS} cert: Converting key and certificate to PKCS12 format: ${PKCS12}"
   echo "------------------------------------------------------------------------------"
   openssl pkcs12 -export \
                  -in ${CLIENT_CERT} -inkey ${CLIENT_KEY} \
@@ -302,7 +302,7 @@ function create_server_stores()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Client CA: Importing the CA into the truststore ${TRUSTSTORE}"
+  echo "Server Cert: Importing the CA into the truststore ${TRUSTSTORE}"
   echo "------------------------------------------------------------------------------"
   keytool -importcert -trustcacerts  -noprompt \
           -keystore ${TRUSTSTORE} -storepass ${TRUSTSTORE_PW} \
@@ -313,7 +313,7 @@ function create_server_stores()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Client cert: Saving truststore password file: ${TRUSTSTORE_PW_FILE}"
+  echo "Server cert: Saving truststore password file: ${TRUSTSTORE_PW_FILE}"
   echo "------------------------------------------------------------------------------"
   echo ${TRUSTSTORE_PW} > ${TRUSTSTORE_PW_FILE}
 
@@ -342,7 +342,7 @@ function create_client_stores()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Client cert: Importing the PCKS12 file (containing the key and certificate) into the keystore ${KEYSTORE}"
+  echo "${CLIENT_ALIAS} cert: Importing the PCKS12 file (containing the key and certificate) into the keystore ${KEYSTORE}"
   echo "------------------------------------------------------------------------------"
   keytool -importkeystore \
           -srckeystore ${PKCS12} -srcstorepass ${KEYSTORE_PW} -srcstoretype pkcs12 -srcalias ${CLIENT_ALIAS} \
@@ -354,7 +354,7 @@ function create_client_stores()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Client cert: Saving keystore password file: ${KEYSTORE_PW_FILE}"
+  echo "${CLIENT_ALIAS} cert: Saving keystore password file: ${KEYSTORE_PW_FILE}"
   echo "------------------------------------------------------------------------------"
   echo ${KEYSTORE_PW} > ${KEYSTORE_PW_FILE}
 
@@ -362,7 +362,7 @@ function create_client_stores()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Server cert: Importing the CA into the truststore ${TRUSTSTORE}"
+  echo "${CLIENT_ALIAS} cert: Importing the CA into the truststore ${TRUSTSTORE}"
   echo "------------------------------------------------------------------------------"
   keytool -importcert -trustcacerts  -noprompt \
           -keystore ${TRUSTSTORE} -storepass ${TRUSTSTORE_PW} \
@@ -373,7 +373,7 @@ function create_client_stores()
 
   echo ""
   echo "------------------------------------------------------------------------------"
-  echo "Server cert: Saving truststore password file: ${TRUSTSTORE_PW_FILE}"
+  echo "${CLIENT_ALIAS} cert: Saving truststore password file: ${TRUSTSTORE_PW_FILE}"
   echo "------------------------------------------------------------------------------"
   echo ${TRUSTSTORE_PW} > ${TRUSTSTORE_PW_FILE}
 
