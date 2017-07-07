@@ -6,7 +6,7 @@ Demonstrate a multi-tenant KWIC scenario. This tutorial includes TLS/SSL.
 
 ![KWIC](img/kwic-multi-tenant.jpg)
 
-This example shows how to have a single KWIC instance in the cloud servicing multiple independent tenants. In this scenario, all connections inbound to the cloud connect to the same server, **server B**.
+This tutorial shows how to have a single KWIC instance in the cloud servicing multiple independent tenants. In this scenario, all connections inbound to the cloud connect to the same server, **server B**.
 
 ## Configuration
 
@@ -90,7 +90,9 @@ docker run -it --rm konjak/netcat 192.168.99.100 5551
 
     In the log output of the Docker Compose terminal window, the prefix on each line shows the Docker container used. You can use that to verify that the connections are all going through tenant101.
 
-2. Now test connectivity to tenant201:
+2. Now test connectivity to tenant201.
+
+    Note that for **client D**, the KWIC instance is listening on port 6661, just like tenant101. However since we are using Docker to run everything on a single host, port 6661 is already bound for tenant101. Therefore Docker has been configured to redirect port 9991 to 6661 for the tenant201 container. The KWIC configuration is still correct, and is configured for port 6661. Using port 9991 is simply a workaround that is being applied specifically for Docker here.
 
     ```bash
     # Test client C to server C
