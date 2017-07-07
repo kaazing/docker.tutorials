@@ -13,7 +13,7 @@ services:
       - x509:/x509
 
   example.com:
-    image: kaazing/enterprise-gateway:5.6.0
+    image: kaazing/enterprise-gateway:5.6.2
     volumes:
       - ./config/cloud-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./config/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
@@ -34,7 +34,7 @@ services:
 
 
   tenant101:
-    image: kaazing/enterprise-gateway:5.6.0
+    image: kaazing/enterprise-gateway:5.6.2
     volumes:
       - ./config/tenant101-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./config/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
@@ -44,7 +44,6 @@ services:
       - "6661:6661"
     networks:
       kwic-net:
-        ipv4_address: 172.33.0.101
     command: bash -c "/wait-for-files.sh
                          /x509/stores/keystore-tenant101.jceks
                          /x509/stores/keystore-tenant101.pw
@@ -54,7 +53,7 @@ services:
                       && gateway.start"
 
   tenant201:
-    image: kaazing/enterprise-gateway:5.6.0
+    image: kaazing/enterprise-gateway:5.6.2
     volumes:
       - ./config/tenant201-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./config/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
@@ -64,7 +63,6 @@ services:
       - "9991:6661"
     networks:
       kwic-net:
-        ipv4_address: 172.33.0.201
     command: bash -c "/wait-for-files.sh
                          /x509/stores/keystore-tenant201.jceks
                          /x509/stores/keystore-tenant201.pw
@@ -74,7 +72,7 @@ services:
                       && gateway.start"
 
   server-a:
-    image: kaazing/enterprise-gateway:5.6.0
+    image: kaazing/enterprise-gateway:5.6.2
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=server-a -Dservice-port=5551"
     volumes:
@@ -83,7 +81,7 @@ services:
       kwic-net:
 
   server-b:
-    image: kaazing/enterprise-gateway:5.6.0
+    image: kaazing/enterprise-gateway:5.6.2
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=server-b -Dservice-port=6661"
     volumes:
@@ -92,7 +90,7 @@ services:
       kwic-net:
 
   server-c:
-    image: kaazing/enterprise-gateway:5.6.0
+    image: kaazing/enterprise-gateway:5.6.2
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=server-c -Dservice-port=7771"
     volumes:
