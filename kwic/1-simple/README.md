@@ -67,7 +67,7 @@ docker run -it --rm konjak/netcat 192.168.99.100 5551
     onprem_1       | INFO  [wsn#6 172.32.0.5:36766] OPENED: (#00000006: kzg wsn, client, ws://example.com:80/kwic => ws://example.com/kwic)
     ```
 
-    Those lines indicate that the on-prem instance established a reverse connection to the cloud instance. Since there are two services with reverse connectivity – **service A** and **service C** – we expect to see two pair of log lines (for a total of 4 lines).
+    Those lines indicate that the on-prem instance established a reverse connection to the cloud instance. Since there are two services with reverse connectivity – **proxy service A** and **proxy service C** – we expect to see two pair of log lines (for a total of 4 lines).
 
 1. In another terminal window, test **client A** connecting to **server A** using netcat. Once it is connected, type `hello` and hit Enter. You will see your message echoed back. Type some more messages if you like, pressing Enter each time. When done, press Ctrl-C to exit netcat.
 

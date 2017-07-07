@@ -3,7 +3,7 @@
 
 
   <service>
-    <name>service A</name>
+    <name>proxy service A</name>
 
     <accept>tcp://@eth0:5551</accept>
     <connect>pipe://serviceA</connect>
@@ -20,7 +20,7 @@
 
 
   <service>
-    <name>service B</name>
+    <name>proxy service B</name>
 
     <accept>ws://example.com:80/serviceB</accept>
     <connect>tcp://server-b:6661</connect>
@@ -34,7 +34,7 @@
 
 
   <service>
-    <name>service C</name>
+    <name>proxy service C</name>
 
     <accept>tcp://@eth0:7771</accept>
     <connect>pipe://serviceC</connect>
@@ -51,7 +51,7 @@
 
 
   <service>
-    <name>service D</name>
+    <name>proxy service D</name>
 
     <accept>ws://example.com:80/serviceD</accept>
     <connect>tcp://server-d:8881</connect>

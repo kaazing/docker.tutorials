@@ -3,7 +3,7 @@
 
 
   <service>
-    <name>service A</name>
+    <name>proxy service A</name>
 
     <accept>tcp://@eth0:5551</accept>
     <connect>pipe://serviceA</connect>
@@ -21,7 +21,7 @@
   </service>
 
   <service>
-    <name>service B</name>
+    <name>proxy service B</name>
 
     <accept>wss://example.com:443/serviceB</accept>
     <connect>tcp://server-b:6661</connect>
