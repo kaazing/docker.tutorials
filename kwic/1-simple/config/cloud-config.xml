@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gateway-config xmlns="http://xmlns.kaazing.org/2016/06/gateway">
+
+
+  <service>
+    <name>proxy service A</name>
+
+    <accept>tcp://@eth0:5551</accept>
+    <connect>pipe://serviceA</connect>
+
+    <type>proxy</type>
+
+    <connect-options>
+      <pipe.transport>socks://example.com</pipe.transport>
+      <socks.mode>reverse</socks.mode>
+      <socks.transport>ws://example.com/kwic</socks.transport>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </connect-options>
+  </service>
+
+
+  <service>
+    <name>proxy service B</name>
+
+    <accept>ws://example.com:80/serviceB</accept>
+    <connect>tcp://server-b:6661</connect>
+
+    <type>proxy</type>
+
+    <accept-options>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </accept-options>
+  </service>
+
+
+  <service>
+    <name>proxy service C</name>
+
+    <accept>tcp://@eth0:7771</accept>
+    <connect>pipe://serviceC</connect>
+
+    <type>proxy</type>
+
+    <connect-options>
+      <pipe.transport>socks://example.com</pipe.transport>
+      <socks.mode>reverse</socks.mode>
+      <socks.transport>ws://example.com/kwic</socks.transport>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </connect-options>
+  </service>
+
+
+  <service>
+    <name>proxy service D</name>
+
+    <accept>ws://example.com:80/serviceD</accept>
+    <connect>tcp://server-d:8881</connect>
+
+    <type>proxy</type>
+
+    <accept-options>
+      <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
+    </accept-options>
+  </service>
+
+
+</gateway-config>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gateway-config xmlns="http://xmlns.kaazing.org/2016/06/gateway">
+
+
+  <!--
+  These properties are specific to each gateway instance, and will be set
+  by the external environment.
+
+  <properties>
+
+    <property>
+      <name>service-hostname</name>
+      <value></value>
+    </property>
+
+    <property>
+      <name>service-port</name>
+      <value></value>
+    </property>
+
+  </properties>
+  -->
+
+
+  <service>
+    <name>TCP Echo</name>
+    <description>A service that echo's messages back for tcp</description>
+    <accept>tcp://${service-hostname}:${service-port}</accept>
+
+    <type>echo</type>
+
+  </service>
+
+
+</gateway-config>
