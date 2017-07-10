@@ -44,6 +44,7 @@ services:
       - "6661:6661"
     networks:
       kwic-net:
+        ipv4_address: 172.33.0.101
     command: bash -c "/wait-for-files.sh
                          /x509/stores/keystore-tenant101.jceks
                          /x509/stores/keystore-tenant101.pw
@@ -63,6 +64,7 @@ services:
       - "9991:6661"
     networks:
       kwic-net:
+        ipv4_address: 172.33.0.201
     command: bash -c "/wait-for-files.sh
                          /x509/stores/keystore-tenant201.jceks
                          /x509/stores/keystore-tenant201.pw
