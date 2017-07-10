@@ -7,7 +7,6 @@ This repository provides examples of different Kaazing Gateway deployment scenar
 Each subdirectory contains a scenario and instructions on how to run the setup locally.
 
 * [KWIC](kwic) (Kaazing WebSocket Intercloud Connect)
-    - [KWIC High Availability (HA)](kwic/kwic-ha)
 * [Broadcasting TCP Data to WebSocket Clients](broadcast)
 * [Enable WSS (WebSocket over TLS)](wss)
 * [Authenticating Users](user-auth)
