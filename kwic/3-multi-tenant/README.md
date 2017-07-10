@@ -1,6 +1,6 @@
 # KWIC Multi-Tenant
 
-(**Note:** Please complete the [KWIC 1-Simple](../1-simple) and [KWIC 2-tls](../1-simple) tutorials before starting this one.)
+(**Note:** Please complete the [1-Simple](../1-simple) and [2-tls](../2-tls) tutorials before starting this one.)
 
 Demonstrate a multi-tenant KWIC scenario. This tutorial includes TLS/SSL.
 

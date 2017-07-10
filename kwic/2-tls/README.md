@@ -1,6 +1,6 @@
 # KWIC TLS
 
-(**Note:** Please complete the [KWIC 1-Simple](../1-simple) tutorial before starting this one.)
+(**Note:** Please complete the [1-Simple](../1-simple) tutorial before starting this one.)
 
 Demonstrate a KWIC scenario with TLS/SSL.
 
