@@ -15,8 +15,7 @@
       <socks.mode>reverse</socks.mode>
       <socks.transport>wss://example.com/kwic</socks.transport>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
-      <!-- Commenting out the following line because of a bug with client certs: tickets#1126 -->
-      <!-- <socks.tls.verify-client>required</socks.tls.verify-client> -->
+      <!-- <socks.ssl.verify-client>required</socks.ssl.verify-client> -->
     </connect-options>
   </service>
 
@@ -30,8 +29,7 @@
 
     <accept-options>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
-      <!-- Commenting out the following line because of a bug with client certs: tickets#1126 -->
-      <!-- <tls.verify-client>required</tls.verify-client> -->
+      <!-- <ssl.verify-client>required</ssl.verify-client> -->
     </accept-options>
   </service>
 
