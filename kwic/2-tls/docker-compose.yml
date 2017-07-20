@@ -13,7 +13,7 @@ services:
       - x509:/x509
 
   example.com:
-    image: kaazing/enterprise-gateway:5.6.2
+    image: kaazing/enterprise-gateway:5.7.0
     volumes:
       - ./config/cloud-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./config/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
@@ -34,7 +34,7 @@ services:
 
 
   onprem:
-    image: kaazing/enterprise-gateway:5.6.2
+    image: kaazing/enterprise-gateway:5.7.0
     volumes:
       - ./config/onprem-config.xml:/kaazing-gateway/conf/gateway-config.xml:ro
       - ./config/log4j-config.xml:/kaazing-gateway/conf/log4j-config.xml:ro
@@ -54,7 +54,7 @@ services:
                       && gateway.start"
 
   server-a:
-    image: kaazing/enterprise-gateway:5.6.2
+    image: kaazing/enterprise-gateway:5.7.0
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=server-a -Dservice-port=5551"
     volumes:
@@ -63,7 +63,7 @@ services:
       kwic-net:
 
   server-b:
-    image: kaazing/enterprise-gateway:5.6.2
+    image: kaazing/enterprise-gateway:5.7.0
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=server-b -Dservice-port=6661"
     volumes:
@@ -72,7 +72,7 @@ services:
       kwic-net:
 
   server-c:
-    image: kaazing/enterprise-gateway:5.6.2
+    image: kaazing/enterprise-gateway:5.7.0
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=server-c -Dservice-port=7771"
     volumes:
@@ -81,7 +81,7 @@ services:
       kwic-net:
 
   server-d:
-    image: kaazing/enterprise-gateway:5.6.2
+    image: kaazing/enterprise-gateway:5.7.0
     environment:
       GATEWAY_OPTS: "-Dservice-hostname=server-d -Dservice-port=8881"
     volumes:
