@@ -13,7 +13,7 @@
     <accept-options>
       <pipe.transport>socks://example.com</pipe.transport>
       <socks.mode>reverse</socks.mode>
-      <socks.transport>wss://example.com/kwic</socks.transport>
+      <socks.transport>wsn+ssl://example.com/kwic</socks.transport>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
     </accept-options>
   </service>
@@ -23,7 +23,7 @@
     <name>proxy service D</name>
 
     <accept>tcp://@eth0:6661</accept>
-    <connect>wss://example.com:443/serviceD</connect>
+    <connect>wsn+ssl://example.com:443/serviceD</connect>
 
     <type>proxy</type>
 
