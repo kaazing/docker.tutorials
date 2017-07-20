@@ -13,7 +13,7 @@
     <accept-options>
       <pipe.transport>socks://cloud1.example.com</pipe.transport>
       <socks.mode>reverse</socks.mode>
-      <socks.transport>wss://cloud1.example.com/kwic</socks.transport>
+      <socks.transport>wsn+ssl://cloud1.example.com/kwic</socks.transport>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
     </accept-options>
   </service>
@@ -30,7 +30,7 @@
     <accept-options>
       <pipe.transport>socks://cloud2.example.com</pipe.transport>
       <socks.mode>reverse</socks.mode>
-      <socks.transport>wss://cloud2.example.com/kwic</socks.transport>
+      <socks.transport>wsn+ssl://cloud2.example.com/kwic</socks.transport>
       <ws.inactivity.timeout>55 seconds</ws.inactivity.timeout>
     </accept-options>
   </service>
@@ -40,7 +40,7 @@
     <name>proxy service B</name>
 
     <accept>tcp://@eth0:6661</accept>
-    <connect>wss://example.com:443/serviceB</connect>
+    <connect>wsn+ssl://example.com:443/serviceB</connect>
 
     <type>proxy</type>
 
